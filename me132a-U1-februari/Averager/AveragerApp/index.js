@@ -12,8 +12,6 @@
 // None allowed
 
 
-
-
 // FUNCTION DECLARATIONS (in alphabetical order)
 function adder (_array) {
     let sum = 0;
