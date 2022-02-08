@@ -1,0 +1,70 @@
+body {
+  margin: 0px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: antiquewhite;
+}
+
+#top > div {
+  display: flex;
+  flex-basis: 6vh;
+  margin: 2vh;
+  justify-content: center;
+
+  color: saddlebrown;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: large;
+  font-weight: bolder;
+}
+
+#top > div > div {
+  margin: 0px 2vh;
+}
+
+#grid {
+  margin: 2vh;
+  padding: 1vh;
+  flex-grow: 1;
+  display: grid;
+  gap: 1vh;
+
+  font-size: 3vh;
+
+  border: 1px solid saddlebrown;
+  background-color: oldlace;
+}
+
+#grid > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10%;
+
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: bold;
+  color: saddlebrown;
+  background-color: peru;
+}
+
+#grid > div.selected {
+  background-color: saddlebrown;
+  color: chocolate;
+}
+
+#grid > div:hover {
+  cursor: pointer;
+  box-shadow: 0 0 10px sienna;
+}
+
+button {
+  font-weight: bolder;
+  background-color: peru;
+  color: oldlace;
+  border-color: brown;
+}
+
+span {
+  color: brown;
+  margin-left: 5px;
+}
