@@ -14,95 +14,90 @@
 
 // FUNCTION DECLARATIONS (in alphabetical order)
 function adder (_array) {
-    let sum = 0;
-    for (let i = 0 ; i < _array.length ; i++){
-      sum = sum +_array[i];
-    }
-    return sum;
+  let sum = 0;
+  for (let i = 0 ; i < _array.length ; i++){
+    sum = sum +_array[i];
+  }
+  return sum;
 }
 
 function averg (_arr) {
-    let average = adder(_arr) / _arr.length;
-    average = roundString(average, 1);
-    return average;
+  let average = adder(_arr) / _arr.length;
+  average = roundString(average, 1);
+  return average;
 }
 
 function createNumberDiv () {
-    let numberDiv = document.createElement ("div");
-    numberDiv.innerHTML = Math.floor( 99 * Math.random ());
-    numberDiv.addEventListener ("click", function () {
+  let numberDiv = document.createElement ("div");
+  numberDiv.innerHTML = Math.floor( 99 * Math.random ());
+  numberDiv.addEventListener ("click", function () {
     numberDiv.classList.toggle ("selected");
   
-numberDiv.addEventListener ("click", updateResults ("selected"))
+    numberDiv.addEventListener ("click", updateResults ("selected"))
 });
-    return numberDiv;
+  return numberDiv;
 };
 
 function getArrayOfSelectedNumbers (className) {
-
-    let arrayElements = Array.from(document.querySelectorAll("." + className));
-    let arrayNumbers = [];
-    for (let i = 0; i < arrayElements.length; i++) {
-      let numberAsString = arrayElements[i].innerHTML;
-      let number = parseInt(numberAsString);
-      arrayNumbers.push(number);
+  let arrayElements = Array.from(document.querySelectorAll("." + className));
+  let arrayNumbers = [];
+  for (let i = 0; i < arrayElements.length; i++) {
+    let numberAsString = arrayElements[i].innerHTML;
+    let number = parseInt(numberAsString);
+    arrayNumbers.push(number);
   
-    }
-    return arrayNumbers;
+  }
+  return arrayNumbers;
     
 };
 
 function gridMaker (gridContainer, R, C) {
-
-    gridContainer.style.display ="grid";
-    gridContainer.style["gridTemplateRows"] = `repeat(${R}, 1fr)`;
-    gridContainer.style["gridTemplateColumns"] = `repeat(${C}, 1fr)`;
+  gridContainer.style.display ="grid";
+  gridContainer.style["gridTemplateRows"] = `repeat(${R}, 1fr)`;
+  gridContainer.style["gridTemplateColumns"] = `repeat(${C}, 1fr)`;
   
-    gridContainer.innerHTML = "";
+  gridContainer.innerHTML = "";
   
-    document.querySelector("#selected span").innerHTML = "";
-    document.querySelector("#amount span").innerHTML = "";
-    document.querySelector("#sum span").innerHTML = "";
-    document.querySelector("#average span").innerHTML = "";
+  document.querySelector("#selected span").innerHTML = "";
+  document.querySelector("#amount span").innerHTML = "";
+  document.querySelector("#sum span").innerHTML = "";
+  document.querySelector("#average span").innerHTML = "";
   
-    for ( let i = 0; i < C; i++ ) {
-            for ( let ii = 0; ii < R; ii++ ) {
-                    gridContainer.appendChild(createNumberDiv ());
+  for ( let i = 0; i < C; i++ ) {
+    for ( let ii = 0; ii < R; ii++ ) {
+      gridContainer.appendChild(createNumberDiv ());
     };
-    };
+  };
 }
 
 function roundString(numberWithManyDecimals, decimals){
-
-    var rounded = Math.pow(10, decimals);
-    return (Math.round(numberWithManyDecimals * rounded) / rounded).toFixed(decimals);
+  var rounded = Math.pow(10, decimals);
+  return (Math.round(numberWithManyDecimals * rounded) / rounded).toFixed(decimals);
 }
 
 function updateResults (className) {
-
-    let array = getArrayOfSelectedNumbers(className);
+  let array = getArrayOfSelectedNumbers(className);
   
-    let selected = array.join(", ");
+  let selected = array.join(", ");
   
-    let amount = array.length;
-    let sum = adder(array);
-    let average = roundString(averg(array), 1);
+  let amount = array.length;
+  let sum = adder(array);
+  let average = roundString(averg(array), 1);
   
-    document.querySelector("#selected span").innerHTML = selected;
-    document.querySelector("#amount span").innerHTML = amount;
-    document.querySelector("#sum span").innerHTML = sum;
-    document.querySelector("#average span").innerHTML = average;
-  
+  document.querySelector("#selected span").innerHTML = selected;
+  document.querySelector("#amount span").innerHTML = amount;
+  document.querySelector("#sum span").innerHTML = sum;
+  document.querySelector("#average span").innerHTML = average;
 }
 
 
 // EVENTLISTENERS FOR EXISTING HTML-ELEMENTS
 document.querySelector ("button").addEventListener ("click", function () {
-    gridMaker (
-        document.querySelector("#grid"),
-        document.getElementById ("inputRows").value,
-        document.getElementById ("inputCols").value
-    )
+  gridMaker (
+    document.querySelector("#grid"),
+    document.getElementById ("inputRows").value,
+    document.getElementById ("inputCols").value
+  )
 });
 
 

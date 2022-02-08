@@ -56,7 +56,7 @@ console.log(document.querySelector("#input_test_1").value);
 //      by going to the webpage and changing that value.
 
 document.querySelector("#button_test_1").addEventListener( "click", function () {
-    console.log(document.querySelector("#input_test_1").value)
+  console.log(document.querySelector("#input_test_1").value)
 });
 
 // E9:  NOTE that the value from the input field is a string, even if the input
@@ -79,11 +79,11 @@ console.log( a + 1 );
 //      logs the result to the console.
 
 function F1 () {
-    console.log (parseInt(document.querySelector("#input_test_1").value) + 23 );
+  console.log (parseInt(document.querySelector("#input_test_1").value) + 23 );
 }
 
 document.querySelector("#button_test_1").addEventListener( "click", F1 )
-    console.log(document.querySelector("#input_test_1").value);
+  console.log(document.querySelector("#input_test_1").value);
 
 // E12: Now make sure that F1 is called when the user clicks on #button_test_1
 //      Test it!
